@@ -162,72 +162,6 @@ Let's keep creating more memories together.
 </div>
 <script>
 
-setTimeout(function(){
-    document.getElementById("loading").classList.add("hidden");
-    document.getElementById("start").classList.remove("hidden");
-},2000);
-
-
-let currentQuestion = 0;
-
-let questions = [
-{
-question: "Do you remember when we first met?",
-answers: [
-["In Ranked Match", true],
-["In Classic Match", false],
-["In Brawl Match", false]
-]
-},
-
-{
-question: "How did we become friends?",
-answers: [
-["Random teammates", true],
-["Facebook", false],
-["A friend introduced us", false]
-]
-},
-
-{
-question: "What is my main ML hero?",
-answers: [
-["Kagura", true],
-["Odette", false],
-["Lesley", false]
-]
-},
-
-{
-question: "Who usually invites first?",
-answers: [
-["Me", false],
-["You", true],
-["We invite each other", false]
-]
-},
-
-{
-question: "Who's your favorite duo?",
-answers: [
-["kim:)", true],
-["Someone else", false],
-["I don't know", false]
-]
-}
-];
-
-
-function startQuiz(){
-
-document.getElementById("start").classList.add("hidden");
-document.getElementById("quiz").classList.remove("hidden");
-
-showQuestion();
-
-}
-
-
 function showQuestion(){
 
 let q = questions[currentQuestion];
@@ -237,7 +171,6 @@ document.getElementById("question").innerHTML = q.question;
 let answerBox = document.getElementById("answers");
 
 answerBox.innerHTML = "";
-
 
 q.answers.forEach(function(answer){
 
@@ -251,4 +184,48 @@ if(answer[1]){
 
 currentQuestion++;
 
-if(current
+if(currentQuestion < questions.length){
+
+showQuestion();
+
+}else{
+
+document.getElementById("quiz").classList.add("hidden");
+document.getElementById("victory").classList.remove("hidden");
+
+}
+
+}else{
+
+alert("❌ Wrong answer! Try again ❤️");
+
+}
+
+};
+
+answerBox.appendChild(button);
+
+});
+
+}
+
+
+function showLetter(){
+
+document.getElementById("victory").classList.add("hidden");
+document.getElementById("letter").classList.remove("hidden");
+
+}
+
+
+function showThanks(){
+
+document.getElementById("letter").classList.add("hidden");
+document.getElementById("thanks").classList.remove("hidden");
+
+}
+
+</script>
+
+</body>
+</html>
