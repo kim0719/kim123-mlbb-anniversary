@@ -3,114 +3,252 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy 2nd Anniversary ❤️</title>
 
-<link rel="stylesheet" href="style.css">
+<title>kim:) ❤️ Zero六</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #16002b, #45006b);
+    color: white;
+    text-align: center;
+}
+
+.container {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.box {
+    background: rgba(0,0,0,0.5);
+    padding: 30px;
+    border-radius: 20px;
+    max-width: 500px;
+    width: 100%;
+}
+
+h1 {
+    color: #ff4d8d;
+}
+
+button {
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+    padding: 15px;
+    border: none;
+    border-radius: 20px;
+    background: #ff4d8d;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+.hidden {
+    display: none;
+}
+</style>
+
 </head>
+
 <body>
 
 <div class="container">
+<div class="box">
 
-    <h1>🎮 kim:) ❤️ Zero六 🎮</h1>
+<div id="loading">
+<h1>🎮 Loading our story... ❤️</h1>
+<p>Please wait...</p>
+</div>
 
-    <div id="quiz">
 
-        <div class="question active">
-            <h2>Do you remember when we first met?</h2>
+<div id="start" class="hidden">
 
-            <button onclick="checkAnswer(true)">In Ranked Match</button>
-            <button onclick="wrong()">In Classic Match</button>
-            <button onclick="wrong()">In Brawl Match</button>
-        </div>
+<h1>kim:) ❤️ Zero六</h1>
 
-        <div class="question">
-            <h2>How did we become friends?</h2>
+<p>Our MLBB 2nd Anniversary Story</p>
 
-            <button onclick="checkAnswer(true)">Random teammates</button>
-            <button onclick="wrong()">Facebook</button>
-            <button onclick="wrong()">A friend introduced us</button>
-        </div>
-
-        <div class="question">
-            <h2>What is my main ML hero?</h2>
-
-            <button onclick="checkAnswer(true)">Kagura</button>
-            <button onclick="wrong()">Odette</button>
-            <button onclick="wrong()">Lesley</button>
-        </div>
-
-        <div class="question">
-            <h2>Who usually invites first?</h2>
-
-            <button onclick="wrong()">Me</button>
-            <button onclick="checkAnswer(true)">You</button>
-            <button onclick="wrong()">We invite each other</button>
-        </div>
-
-        <div class="question">
-            <h2>Who's your favorite duo?</h2>
-
-            <button onclick="checkAnswer(true)">kim:)</button>
-            <button onclick="wrong()">Someone else</button>
-            <button onclick="wrong()">I don't know</button>
-        </div>
-
-    </div>
-
-    <div id="victory" style="display:none;">
-
-        <h1>🏆 VICTORY! 🏆</h1>
-
-        <p>❤️ Duo Compatibility: 100%</p>
-        <p>🏆 Teamwork: Legendary</p>
-        <p>🪄 Kagura — kim:)</p>
-        <p>⚔️ Freya — Zero六</p>
-
-        <button onclick="showLetter()">🎁 Claim Reward</button>
-
-    </div>
-
-    <div id="letter" style="display:none;">
-
-        <h2>❤️ Happy 2nd Anniversary, my langgaaa! ❤️</h2>
-
-        <p>
-I met you in ML, and I never imagined that one game would lead me to someone so special.
-From day one until now, we've shared so many memories, laughter, challenges, and unforgettable moments together.
-Thank you for staying by my side through it all.
-<br><br>
-Here's to two amazing years together and to many more anniversaries to come.
-<br><br>
-I love you langga. ❤️
-<br><br>
-Happy 2nd Anniversary! 🥰
-        </p>
-
-        <button onclick="showThanks()">Continue ❤️</button>
-
-    </div>
-
-    <div id="thanks" style="display:none;">
-
-        <h2 style="color:red;">❤️ THANK YOU ❤️</h2>
-
-        <p>
-Thank you for taking the time to finish this little game.
-I hope it made you smile and reminded you of all the memories we've shared.
-<br><br>
-No matter how many matches we win or lose,
-you'll always be my favorite duo. ❤️
-<br><br>
-Let's keep creating more memories together.
-        </p>
-
-        <h3>❤️ With love,<br>kim:)</h3>
-
-    </div>
+<button onclick="startQuiz()">Start ❤️</button>
 
 </div>
 
-<script src="script.js"></script>
 
-</body>
-</html>
+<div id="quiz" class="hidden">
+
+<h2 id="question"></h2>
+
+<div id="answers"></div>
+
+</div>
+<div id="victory" class="hidden">
+
+<h1>🏆 VICTORY! 🏆</h1>
+
+<p>❤️ Duo Compatibility: 100%</p>
+<p>🏆 Teamwork: Legendary</p>
+<p>🪄 Kagura — kim:)</p>
+<p>⚔️ Freya — Zero六</p>
+
+<button onclick="showLetter()">🎁 Claim Reward</button>
+
+</div>
+
+
+<div id="letter" class="hidden">
+
+<h2>❤️ Happy 2nd Anniversary, my langgaaa! ❤️</h2>
+
+<p>
+I met you in ML, and I never imagined that one game would lead me to someone so special.
+
+<br><br>
+
+From day one until now, we've shared so many memories, laughter, challenges, and unforgettable moments together.
+
+<br><br>
+
+Thank you for staying by my side through it all.
+
+<br><br>
+
+Here's to two amazing years together and to many more anniversaries to come.
+
+<br><br>
+
+I love you langga. ❤️
+
+<br><br>
+
+Happy 2nd Anniversary! 🥰
+
+</p>
+
+<button onclick="showThanks()">Continue ❤️</button>
+
+</div>
+
+
+<div id="thanks" class="hidden">
+
+<h1 style="color:red;">❤️ THANK YOU ❤️</h1>
+
+<p>
+Thank you for taking the time to finish this little game.
+
+<br><br>
+
+No matter how many matches we win or lose,
+you'll always be my favorite duo. ❤️
+
+<br><br>
+
+Let's keep creating more memories together.
+
+</p>
+
+<h3>❤️ With love,<br>kim:)</h3>
+
+</div>
+
+</div>
+</div>
+<script>
+
+setTimeout(function(){
+    document.getElementById("loading").classList.add("hidden");
+    document.getElementById("start").classList.remove("hidden");
+},2000);
+
+
+let currentQuestion = 0;
+
+let questions = [
+{
+question: "Do you remember when we first met?",
+answers: [
+["In Ranked Match", true],
+["In Classic Match", false],
+["In Brawl Match", false]
+]
+},
+
+{
+question: "How did we become friends?",
+answers: [
+["Random teammates", true],
+["Facebook", false],
+["A friend introduced us", false]
+]
+},
+
+{
+question: "What is my main ML hero?",
+answers: [
+["Kagura", true],
+["Odette", false],
+["Lesley", false]
+]
+},
+
+{
+question: "Who usually invites first?",
+answers: [
+["Me", false],
+["You", true],
+["We invite each other", false]
+]
+},
+
+{
+question: "Who's your favorite duo?",
+answers: [
+["kim:)", true],
+["Someone else", false],
+["I don't know", false]
+]
+}
+];
+
+
+function startQuiz(){
+
+document.getElementById("start").classList.add("hidden");
+document.getElementById("quiz").classList.remove("hidden");
+
+showQuestion();
+
+}
+
+
+function showQuestion(){
+
+let q = questions[currentQuestion];
+
+document.getElementById("question").innerHTML = q.question;
+
+let answerBox = document.getElementById("answers");
+
+answerBox.innerHTML = "";
+
+
+q.answers.forEach(function(answer){
+
+let button = document.createElement("button");
+
+button.innerHTML = answer[0];
+
+button.onclick = function(){
+
+if(answer[1]){
+
+currentQuestion++;
+
+if(current
